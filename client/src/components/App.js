@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // prettier-ignore
-import { Container, Box, Heading, Card, Image, Text, SearchField, Icon } from 'gestalt';
+import { Container, Box, Heading, Card, Image, Text, SearchField, Icon, Spinner } from 'gestalt';
 import { Link } from 'react-router-dom';
+import Loader from './Loader';
 import './App.css';
 import Strapi from 'strapi-sdk-javascript/build/main';
 const apiUrl = process.env.API_URL || 'http://localhost:1337';
@@ -11,6 +12,7 @@ class App extends Component {
   state = {
     brands: [],
     searchTerm: '',
+    loadingBrands: true,
   };
   async componentDidMount() {
     try {
@@ -29,9 +31,10 @@ class App extends Component {
         },
       });
       // console.log(response);
-      this.setState({ brands: response.data.brands });
+      this.setState({ brands: response.data.brands, loadingBrands: false });
     } catch (err) {
       console.log(err);
+      this.setState({ loadingBrands: false });
     }
   }
 
@@ -47,7 +50,7 @@ class App extends Component {
     );
 
   render() {
-    const { searchTerm } = this.state;
+    const { searchTerm, loadingBrands } = this.state;
 
     return (
       <Container>
@@ -121,6 +124,8 @@ class App extends Component {
             </Box>
           ))}
         </Box>
+        {/* <Spinner show={loadingBrands} accessibilityLabel='Loading Spinner' /> */}
+        <Loader show={loadingBrands} />
       </Container>
     );
   }
