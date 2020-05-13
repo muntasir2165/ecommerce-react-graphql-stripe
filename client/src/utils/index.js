@@ -1,4 +1,5 @@
 const CART_KEY = 'cart';
+const TOKEN_KEY = 'jwt';
 
 export const calculatePrice = (items) =>
   `$${items
@@ -17,4 +18,11 @@ export const getCart = (cartKey = CART_KEY) => {
     return JSON.parse(localStorage.getItem(cartKey));
   }
   return [];
+};
+
+/* Auth */
+export const setToken = (value, tokenKey = TOKEN_KEY) => {
+  if (localStorage) {
+    localStorage.setItem(tokenKey, JSON.stringify(value));
+  }
 };
