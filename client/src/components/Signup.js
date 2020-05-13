@@ -9,6 +9,17 @@ class Signup extends React.Component {
     this.setState({ [event.target.name]: value });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!this.isFormEmpty(this.state)) {
+      console.log('submittted');
+    }
+  };
+
+  isFormEmpty = ({ username, email, password }) =>
+    !username || !email || !password;
+
   render() {
     return (
       <Container>
@@ -29,6 +40,7 @@ class Signup extends React.Component {
               textAlign: 'center',
               maxWidth: 450,
             }}
+            onSubmit={this.handleSubmit}
           >
             {/* Sign Up Form Heading */}
             <Box
