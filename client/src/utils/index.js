@@ -5,6 +5,10 @@ export const calculatePrice = (items) =>
   `$${items
     .reduce((acc, item) => acc + item.quantity * item.price, 0)
     .toFixed(2)}`;
+export const calculateAmount = (items) =>
+  Number(
+    items.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)
+  );
 
 /* Cart */
 export const setCart = (value, cartKey = CART_KEY) => {

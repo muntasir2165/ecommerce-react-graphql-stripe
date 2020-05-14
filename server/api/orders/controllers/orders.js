@@ -34,7 +34,9 @@ module.exports = {
       source: token,
     });
 
-    const order = await strapi.services.orders.add({
+    // the istructor's code specifies the 'add' method which appears to be non-existent in this beta version of strapi
+    // const order = await strapi.services.orders.add({
+    const order = await strapi.services.orders.create({
       user: ctx.state.user._id,
       address,
       amount,
