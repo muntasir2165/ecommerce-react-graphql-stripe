@@ -66,7 +66,7 @@ class App extends Component {
         }`,
       },
     });
-    console.log(this.state.searchTerm, response.data.brands);
+    // console.log(this.state.searchTerm, response.data.brands);
     this.setState({ brands: response.data.brands, loadingBrands: false });
   };
 

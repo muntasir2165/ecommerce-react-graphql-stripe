@@ -47,9 +47,12 @@ const AuthNav = ({ handeSignout }) => (
             src='./icons/logo.svg'
           />
         </Box>
-        <Heading size='xs' color='orange'>
-          BrewHaha
-        </Heading>
+        {/* Title */}
+        <div className='main-title'>
+          <Heading size='xs' color='orange'>
+            BrewHaha
+          </Heading>
+        </div>
       </Box>
     </NavLink>
 
@@ -92,9 +95,12 @@ const UnAuthNav = () => (
             src='./icons/logo.svg'
           />
         </Box>
-        <Heading size='xs' color='orange'>
-          BrewHaha
-        </Heading>
+        {/* Title */}
+        <div className='main-title'>
+          <Heading size='xs' color='orange'>
+            BrewHaha
+          </Heading>
+        </div>
       </Box>
     </NavLink>
 
